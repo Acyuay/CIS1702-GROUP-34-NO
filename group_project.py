@@ -20,7 +20,13 @@ def update_item(item, stock):
 def search_item(item):
 
 def save_exit(inventory):
-
+    with open(filename, "w") as file:
+        json.dump(inventory, file, indent=4)
+        print(f"successfully saved inventory to{filename}")
+    return True
+    except Exception as e:
+        print(f"there was an error while saving {filename}:{e}")
+    return False
 
 
 
