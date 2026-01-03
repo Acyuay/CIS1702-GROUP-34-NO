@@ -10,10 +10,33 @@ def load_inventory(filename):
     except json.JSONDecodeError:
         return []
 
-def add_item(new_item, inventory):
+def add_item(inventory):
+    """Add a new item to the inventory."""
+    product_id = input("Please enter the product id:")
+    product_name = input("Please enter the product name:")
+    try:
+        product_price = float(input("Please enter the product's price:"))
+        product_quantity = int(input("Please enter the products quantity:"))
+    except ValueError:
+        print("Invalid price and/or quantity provided")
+        return
+    
+    for item in inventory:
+        if item ["id"] == product_id:
+            item ["quantity"] += product_quantity
+            print(f"Restocking of {item["Name"]}  (New stock:  {item["Quantity"]})")
+            return
 
+    inventory.append({
+        "id": product_id,
+        "Name": product_name,
+        "Price": product_price,
+        "Quantity": product_quantity
+    })
+    print("---The item has been added successfully---")
 
 def view_stock(item):
+
 
 def update_item(item, stock):
 
