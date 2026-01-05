@@ -83,8 +83,31 @@ def search_item(item, inventory):
            print("item not found")
            return
 
-def low_stock_report():
+def low_stock_report(inventory):
+    try:
+        threshold = int(input("Enter low stock threshold: "))
+    except ValueError:
+        print("Invalid number entered.")
+        return
+
+    low_stock_items = []
+
+    for item in inventory:
+        if item["Quantity"] <= threshold:
+            low_stock_items.append(item)
+
+    if not low_stock_items:
+        print("No items are low in stock.")
+        return
+
+    print("\n--- Low Stock Report ---") #new line for readablility
+    for item in low_stock_items:
+        print(f"ID: {item['id']}")
+        print(f"Name: {item['Name']}")
+        print(f"Quantity: {item['Quantity']}")
+        print("-" * 20)
     
+
 
          
 def save_exit(inventory):
