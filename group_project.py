@@ -24,7 +24,7 @@ def add_item(inventory):
     for item in inventory:
         if item ["id"] == product_id:
             item ["quantity"] += product_quantity
-            print(f"Restocking of {item["Name"]}  (New stock:  {item["Quantity"]})")
+            print(f"Restocking of {item["Name"]} completed.  (New stock:  {item["Quantity"]})")
             return
 
     inventory.append({
