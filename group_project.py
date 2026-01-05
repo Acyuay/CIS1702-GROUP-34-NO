@@ -81,13 +81,14 @@ def display_menu():
     print("5. save and exit")
 
 def save_exit(inventory):
-    with open(filename, "w") as file:
-        json.dump(inventory, file, indent=4)
-        print(f"successfully saved inventory to{filename}")
-    return True
+try:
+        with open(filename, "w") as file:
+            json.dump(inventory, file, indent=4)
+        print(f"Successfully saved inventory to {filename}")
+        sys.exit(0)  # exit normally
     except Exception as e:
-        print(f"there was an error while saving {filename}:{e}")
-    return False
+        print(f"There was an error while saving {filename}: {e}")
+        sys.exit(1)  # exit with error
 
 
 
