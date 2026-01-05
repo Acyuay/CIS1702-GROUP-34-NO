@@ -85,10 +85,7 @@ try:
         with open(filename, "w") as file:
             json.dump(inventory, file, indent=4)
         print(f"Successfully saved inventory to {filename}")
-        sys.exit(0)  # exit normally
-    except Exception as e:
-        print(f"There was an error while saving {filename}: {e}")
-        sys.exit(1)  # exit with error
+    #cleaned the save and the exit is in def main.
 
 
 
