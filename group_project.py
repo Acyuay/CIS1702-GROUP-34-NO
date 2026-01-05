@@ -38,9 +38,47 @@ def add_item(inventory):
 def view_stock(item):
 
 
-def update_item(item, stock):
+def update_item(item, inventory):
+   item_id = input("enter item id: ")
+   for item in inventory:                 #L39-43 finding item nanme by its id and details
+       if item["id"] == item_id:
+            print("\nitem found: ")
+            print(f"item name: {item['name']}")
+            print(f"item priice: {item['price']}")
+            print(f"item quantity: {item['quamtity']}")
+            choice = input("do you want to update this item? (y/n): ")  #comfirms item to update
+            if choice.lower() != 'y':
+                print("returing to menu")               #goes back to menu
+                return
+            if choice.lower()== 'y':                   # right it contiunes the update
+                choice = input("whaat would you like to upadate? (neam/price/quantity):")
+                if choice.lower() == 'name':
+                    new_name = input(print(f"enter ne name:"))
+                    item['name'] = new_name  
+            elif choice.lower() == 'price':
+                try:
+                    new_price = float(input(print(f"Enter new price: ")))   # converts str -> decimal
+                    item['price']= new_price
+                except ValueError:
+                    print(f"invalid input please try again")
+                    return
+            elif choice.lower() == 'quantity':
+                try:
+                    new_quantity = int(input(print(f"enter new quantity: ")))  # int converts string to number
+                    item['quantity'] = new_quantity
+                except ValueError:
+                    print(f"invalid input please try again")
+                    return
 
 def search_item(item):
+
+def display_menu():
+    print("\nInventory system")        #/n for new line each print
+    print("1. Add item")
+    print("2. View stock")
+    print("3. Update")
+    print("4. Search")
+    print("5. save and exit")
 
 def save_exit(inventory):
     with open(filename, "w") as file:
@@ -56,20 +94,20 @@ def save_exit(inventory):
 def main():
     inventory = load_inventory("inventory.json")
     while True:
-        user_choice = input("Do you want to Add item, view stock, update item, search or save and exit? (first word of action) ").lower()
-        if user_choice == "add":
+        user_choice = input("Choose an option: ")
+        if user_choice == "1":
             add_item()
             break
-        elif user_choice == "view":
+        elif user_choice == "2":
             view_stock()
             break
-        elif user_choice == "update":
+        elif user_choice == "3":
             update_item()
             break
-        elif user_choice == "search":
+        elif user_choice == "4":
             search_item()
             break
-        elif user_choice == "save":
+        elif user_choice == "5":
             save_exit()
             break
         else:
