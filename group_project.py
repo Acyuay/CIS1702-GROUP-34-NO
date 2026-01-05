@@ -37,7 +37,6 @@ def add_item(inventory):
 
 def view_stock(item):
 
-
 def update_item(item, inventory):
    item_id = input("enter item id: ")
    for item in inventory:                 #L39-43 finding item nanme by its id and details
@@ -107,9 +106,6 @@ def low_stock_report(inventory):
         print(f"Quantity: {item['Quantity']}")
         print("-" * 20)
     
-
-
-         
 def save_exit(inventory):
     try:
         with open(f{filename}, "w") as file:
@@ -146,7 +142,7 @@ def main():
             search_item()
             break
         elif user_choice == "5":
-            
+            low_stock_report()
             break
         elif user_choice == "6":
             save_exit()
