@@ -1,0 +1,84 @@
+BEGIN PROGRAM
+ 
+FUNCTION load_inventory(filename):
+    TRY to open the file
+        READ JSON data
+        RETURN the inventory list
+    IF file not found OR invalid JSON:
+        RETURN an empty list
+ 
+ 
+FUNCTION add_item(inventory):
+    ASK user for product id
+    ASK user for product name
+    ASK user for price and quantity
+    IF price or quantity invalid:
+        PRINT error
+        STOP
+ 
+    FOR each item in inventory:
+        IF item id matches:
+            Increase item quantity
+            PRINT restock message
+            STOP
+ 
+    ADD new item to inventory
+    PRINT success message
+ 
+ 
+FUNCTION view_stock(inventory):
+    FOR each item in inventory:
+        PRINT item id, name, price, quantity
+ 
+FUNCTION update_item(inventory):
+    ASK user for item id
+    FOR each item in inventory:
+        IF id matches:
+            PRINT item details
+            ASK user if they want to update
+            IF no → STOP
+ 
+            ASK what field to update (name/price/quantity)
+            UPDATE chosen field
+            STOP
+ 
+    PRINT "item not found"
+ 
+ 
+FUNCTION search_item(inventory):
+    ASK user for search term
+    FOR each item in inventory:
+        IF name or id contains search term:
+            PRINT item details
+ 
+ 
+FUNCTION save_exit(inventory, filename):
+    TRY to write inventory to file
+        PRINT success message
+    IF error:
+        PRINT error message
+ 
+ 
+FUNCTION display_menu():
+    PRINT menu options
+ 
+ 
+ 
+MAIN FUNCTION:
+    LOAD inventory from file
+ 
+    LOOP forever:
+        DISPLAY menu
+        GET user choice
+ 
+        IF choice = 1 → add_item
+        IF choice = 2 → view_stock
+        IF choice = 3 → update_item
+        IF choice = 4 → search_item
+        IF choice = 5 → save_exit and EXIT
+ 
+        IF invalid choice:
+            PRINT error message
+ 
+END PROGRAM
+ 
