@@ -81,13 +81,13 @@ def display_menu():
     print("5. save and exit")
 
 def save_exit(inventory):
-try:
+    try:
         with open(filename, "w") as file:
             json.dump(inventory, file, indent=4)
         print(f"Successfully saved inventory to {filename}")
-except FileNotFoundError:
-    print("No save file found. Starting fresh.")
-    return [] # Return an empty list
+    except FileNotFoundError:
+        print("No save file found. Starting fresh.")
+        return [] # Return an empty list
 
 
 def main():
