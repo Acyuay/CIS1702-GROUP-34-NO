@@ -45,15 +45,15 @@ def update_item(item, inventory):
             print("\nitem found: ")
             print(f"item name: {item['name']}")
             print(f"item priice: {item['price']}")
-            print(f"item quantity: {item['quamtity']}")
+            print(f"item quantity: {item['quantity']}")
             choice = input("do you want to update this item? (y/n): ")  #comfirms item to update
             if choice.lower() != 'y':
                 print("returing to menu")               #goes back to menu
                 return
             if choice.lower()== 'y':                   # right it contiunes the update
-                choice = input("whaat would you like to upadate? (neam/price/quantity):")
+                choice = input("whaat would you like to upadate? (name/price/quantity):")
                 if choice.lower() == 'name':
-                    new_name = input(print(f"enter ne name:"))
+                    new_name = input(print(f"enter new name:"))
                     item['name'] = new_name  
             elif choice.lower() == 'price':
                 try:
