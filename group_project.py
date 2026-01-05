@@ -83,22 +83,27 @@ def search_item(item, inventory):
            print("item not found")
            return
 
+def low_stock_report():
+    
+
+         
+def save_exit(inventory):
+    try:
+        with open(f{filename}, "w") as file:
+            json.dump(inventory, file, indent=4)
+        print(f"Successfully saved inventory to {filename}")
+    except FileNotFoundError:
+        print("No save file found. Starting fresh.")
+        return [] # Return an empty list
+
 def display_menu():
     print("\nInventory system")        #/n for new line each print
     print("1. Add item")
     print("2. View stock")
     print("3. Update")
     print("4. Search")
-    print("5. save and exit")
-
-def save_exit(inventory):
-    try:
-        with open(filename, "w") as file:
-            json.dump(inventory, file, indent=4)
-        print(f"Successfully saved inventory to {filename}")
-    except FileNotFoundError:
-        print("No save file found. Starting fresh.")
-        return [] # Return an empty list
+    print("5. Low stock report")
+    print("6. Save and exit")
 
 
 def main():
@@ -118,6 +123,9 @@ def main():
             search_item()
             break
         elif user_choice == "5":
+            
+            break
+        elif user_choice == "6":
             save_exit()
             break
         else:
