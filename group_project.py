@@ -70,7 +70,18 @@ def update_item(item, inventory):
                     print(f"invalid input please try again")
                     return
 
-def search_item(item):
+def search_item(item, inventory):
+     item_id = input("enter item id: ")
+     for item in inventory:
+         if item["id"] == item_id:
+            print("\nitem found: ")
+            print(f"item name: {item['name']}")
+            print(f"item priice: {item['price']}")
+            print(f"item quantity: {item['quamtity']}")
+            return
+         else:
+           print("item not found")
+           return
 
 def display_menu():
     print("\nInventory system")        #/n for new line each print
