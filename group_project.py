@@ -85,8 +85,9 @@ try:
         with open(filename, "w") as file:
             json.dump(inventory, file, indent=4)
         print(f"Successfully saved inventory to {filename}")
-    #cleaned the save and the exit is in def main.
-
+except FileNotFoundError:
+    print("No save file found. Starting fresh.")
+    return [] # Return an empty list
 
 
 def main():
