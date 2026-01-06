@@ -79,7 +79,7 @@ def update_item(inventory):
                     print(f"invalid input please try again")
                     return
 
-def search_item(item, inventory):
+def search_item(inventory):
      item_id = input("enter item id: ")
      for item in inventory:
          if item["id"] == item_id:
