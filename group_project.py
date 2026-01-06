@@ -12,16 +12,16 @@ def load_inventory(filename):
 
 def add_item(inventory):
     """Add a new item to the inventory."""
-    product_id = input("Please enter the product id:")
-    product_name = input("Please enter the product name:")
+    product_id = input("Please enter the product id:") #Input function for the user to add the products id
+    product_name = input("Please enter the product name:") #Input function for the user to add the products name
     try:
-        product_price = float(input("Please enter the product's price:"))
+        product_price = float(input("Please enter the product's price: £")) #float is telling python input as a number with decimals
         product_quantity = int(input("Please enter the products quantity:"))
-    except ValueError:
+    except ValueError: #If there is a error with the input value print the next line of code
         print("Invalid price and/or quantity provided")
-        return
+        return #returns the result to the global.
     
-    for item in inventory:
+    for item in inventory: #This is a loop to go through every item in inventory 1 at a time
         if item ["id"] == product_id:
             item ["quantity"] += product_quantity
             print(f"Restocking of {item["Name"]} completed.  (New stock:  {item["Quantity"]})")
@@ -36,6 +36,7 @@ def add_item(inventory):
     print("---The item has been added successfully---")
 
 def view_stock(item):
+
 
 def update_item(item, inventory):
    item_id = input("enter item id: ")
@@ -106,6 +107,9 @@ def low_stock_report(inventory):
         print(f"Quantity: {item['Quantity']}")
         print("-" * 20)
     
+
+
+         
 def save_exit(inventory):
     try:
         with open(f{filename}, "w") as file:
@@ -142,7 +146,7 @@ def main():
             search_item()
             break
         elif user_choice == "5":
-            low_stock_report()
+            
             break
         elif user_choice == "6":
             save_exit()
