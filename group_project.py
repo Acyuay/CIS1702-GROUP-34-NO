@@ -24,7 +24,7 @@ def add_item(inventory):
     for item in inventory: #This is a loop to go through every item in inventory 1 at a time
         if item ["id"] == product_id:
             item ["quantity"] += product_quantity
-            print(f"Restocking of {item["Name"]} completed.  (New stock:  {item["Quantity"]})")
+            print(f"Restocking of {item["name"]} completed.  (New stock:  {item["quantity"]})")
             return
 
     inventory.append({
