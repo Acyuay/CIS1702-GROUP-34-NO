@@ -114,8 +114,9 @@ def low_stock_report(inventory):
         print(f"ID: {item['id']}")
         print(f"Name: {item['name']}")
         print(f"Quantity: {item['quantity']}")
-        print("-" * 20)
-           
+        print("-" * 20) #prints 20 - out for formatting
+
+
 def save_exit(inventory):
     try:
         with open("inventory.json", "w") as f:
@@ -137,8 +138,8 @@ def display_menu():
 
 def main():
     inventory = load_inventory("inventory.json")
-    display_menu()
     while True:
+        display_menu()
         user_choice = input("Choose an option: ")
         if user_choice == "1":
             add_item(inventory)
@@ -160,6 +161,6 @@ def main():
             break
         else:
             print("Invalid input please try again")
-        return
+    return
 
 main()
