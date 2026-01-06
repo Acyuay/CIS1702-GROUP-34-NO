@@ -9,12 +9,12 @@
         "id": 102,
         "name": "Mechanical Keyboard",
         "price": 120.0,
-        "quantity": 8
+        "quantity": 15
     },
     {
         "id": 103,
         "name": "USB-C Hub",
         "price": 45.99,
-        "quantity": 0
+        "quantity": 5
     }
 ]
