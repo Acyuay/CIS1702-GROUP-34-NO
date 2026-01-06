@@ -18,18 +18,20 @@ def add_item(inventory):
     """Add a new item to the inventory."""
     product_id = input("Please enter the product id:") #Input function for the user to add the products id
     product_name = input("Please enter the product name:") #Input function for the user to add the products name
+    
+    for item in inventory:
+        if item["id"] == product_id:
+            print("Error: An item with this ID already exists.")
+            return
+    if item["name"].lower() == product_name.lower():
+        print("Error: An item with this name already exists.")
+        return
     try:
         product_price = float(input("Please enter the product's price: £")) #float is telling python input as a number with decimals
         product_quantity = int(input("Please enter the products quantity:"))
     except ValueError: #If there is a error with the input value print the next line of code
         print("Invalid price and/or quantity provided")
-        return #returns the result to the global.
-    
-    for item in inventory: #This is a loop to go through every item in inventory 1 at a time
-        if item ["id"] == product_id:
-            item ["quantity"] += product_quantity
-            print(f"Restocking of {item["name"]} completed.  (New stock:  {item["quantity"]})")
-            return
+        return #returns the result to the global.   
 
     inventory.append({
         "id": product_id,
