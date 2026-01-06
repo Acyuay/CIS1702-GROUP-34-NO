@@ -15,14 +15,14 @@ def load_inventory(filename):
 
 def add_item(inventory):
     """Add a new item to the inventory."""
-    product_id = input("Please enter the product id:") #Input function for the user to add the products id
-    product_name = input("Please enter the product name:") #Input function for the user to add the products name
+    product_id = input("Please enter the product id:").strip() #Input function for the user to add the products id
+    product_name = input("Please enter the product name:").strip() #Input function for the user to add the products name
     
     for item in inventory:
-        if item["id"] == product_id:
+        if str(item["id"]).strip() == product_id:
             print("Error: An item with this ID already exists.")
             return
-        if item["name"].lower() == product_name.lower():
+        if item["name"].strip().lower() == product_name.lower():
             print("Error: An item with this name already exists.")
             return
     try:
