@@ -95,7 +95,7 @@ def update_item(inventory):
 def search_item(inventory):
     item_id = input("enter item id: ")     
     for item in inventory:
-        if str(item["id"]) == str(item_id):
+        if str(item["id"]) == str(item_id): #converts both to string otherwise will always not find the item
             print("\nitem found: ")
             print(f"item name: {item['name']}")
             print(f"item price: {item['price']}")
@@ -163,7 +163,7 @@ def main():
             low_stock_report(inventory)
         elif user_choice == "6":
             save_exit(inventory)
-            break
+            break  #only one with break so the code loops until you want to save and exit
         else:
             print("Invalid input please try again")
     return
