@@ -1,4 +1,5 @@
 import json
+
 """
 This is our inventory system that is capable of adding items, viewing the stock
 updating the stock, searching the stock, generating low stock reports and saving the data to a json file
