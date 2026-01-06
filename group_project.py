@@ -45,7 +45,7 @@ def view_stock(inventory):  #this function of the code allows the user to view t
         print(f"Name: {item['name']}")  #L45 prints the item's name 
         print(f"Price: £{item['price']}")  #L46 prints the price of the item 
         print(f"Quantity: {item['quantity']}") #L47 will print the quantity of the items 
-    
+        print("-" * 20) #prints 20 - out for formatting
 
 def update_item(inventory):
    item_id = input("enter item id: ")
@@ -143,19 +143,14 @@ def main():
         user_choice = input("Choose an option: ")
         if user_choice == "1":
             add_item(inventory)
-            break
         elif user_choice == "2":
             view_stock(inventory)
-            break
         elif user_choice == "3":
             update_item(inventory)
-            break
         elif user_choice == "4":
             search_item(inventory)
-            break
         elif user_choice == "5":
             low_stock_report(inventory)
-            break
         elif user_choice == "6":
             save_exit(inventory)
             break
