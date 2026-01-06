@@ -127,7 +127,7 @@ def save_exit(inventory):
         return [] # Return an empty list
 
 def display_menu():
-    print("\nInventory system")        #/n for new line each print
+    print("\n---Inventory system---")        #/n for new line each print
     print("1. Add item")
     print("2. View stock")
     print("3. Update")
