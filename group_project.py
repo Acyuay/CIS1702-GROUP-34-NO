@@ -1,5 +1,9 @@
 import json
 
+"""
+This is our inventory system that is capable of adding items, viewing the stock
+updating the stock, searching the stock, generating low stock reports and saving the data to a json file
+"""
 def load_inventory(filename):
     #Basic loading inventory to file and crash protection
     try:
@@ -49,38 +53,45 @@ def view_stock(inventory):  #this function of the code allows the user to view t
 
 def update_item(inventory):
     item_id = input("enter item id: ")
+
     for item in inventory:
         if str(item["id"]) == str(item_id):
-            print("\nitem found: ")
-            print(f"item name: {item['name']}")
-            print(f"item price: {item['price']}")
-            print(f"item quantity: {item['quantity']}")
-    choice = input("do you want to update this item? (y/n): ")  #comfirms item to update
-    if choice.lower() != 'y':
-        print("returing to menu")               #goes back to menu
-        return
-    elif choice.lower()== 'y':                   # right it contiunes the update
-        choice = input("what would you like to upadate? (name/price/quantity):")
-        if choice.lower() == 'name':
-            new_name = input(print(f"enter new name:"))
-            item['name'] = new_name  
-    elif choice.lower() == 'price':
-        try:
-            new_price = float(input(print(f"Enter new price: ")))   # converts str -> decimal
-            item['price']= new_price
-        except ValueError:
-            print(f"invalid input please try again")
-            return
-    elif choice.lower() == 'quantity':
-        try:
-            new_quantity = int(input(print(f"enter new quantity: ")))  # int converts string to number
-            item['quantity'] = new_quantity
-        except ValueError:
-            print(f"invalid input please try again")
+            print("\nItem found:")
+            print(f"Item name: {item['name']}")
+            print(f"Item price: {item['price']}")
+            print(f"Item quantity: {item['quantity']}")                #edited function similar to search function  
+
+            confirm = input("do you want to update this item? (y/n): ")
+            if confirm.lower() != 'y':
+                print("returning to menu")
+                return
+
+            choice = input("what would you like to update? (name/price/quantity): ").lower()  #allows user to pick option
+
+            if choice == 'name':
+                item['name'] = input("enter new name: ")
+
+            elif choice == 'price':
+                try:
+                    item['price'] = float(input("enter new price: "))  # converts str - decimal 
+                except ValueError:
+                    print("invalid price")
+                    return
+
+            elif choice == 'quantity':
+                try:
+                    item['quantity'] = int(input("enter new quantity: "))     # converts str - whole number
+                except ValueError:
+                    print("invalid quantity")
+                    return
+
+            print("Item updated successfully!")
             return
 
+    print("Item not found")
+
 def search_item(inventory):
-    item_id = input("enter item id: ")
+    item_id = input("enter item id: ")     
     for item in inventory:
         if str(item["id"]) == str(item_id):
             print("\nitem found: ")
