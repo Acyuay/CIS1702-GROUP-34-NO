@@ -47,7 +47,7 @@ def view_stock(inventory):  #this function of the code allows the user to view t
         print(f"Quantity: {item['quantity']}") #L47 will print the quantity of the items 
     
 
-def update_item(item, inventory):
+def update_item(inventory):
    item_id = input("enter item id: ")
    for item in inventory:                 #L39-43 finding item nanme by its id and details
        if item["id"] == item_id:
@@ -102,7 +102,7 @@ def low_stock_report(inventory):
     low_stock_items = [] #creates an empty list to append the low stock items to
 
     for item in inventory: #loop iterates to find all the items below the threshold quantity
-        if item["Quantity"] <= threshold:
+        if item["quantity"] <= threshold:
             low_stock_items.append(item)
 
     if not low_stock_items: 
@@ -112,8 +112,8 @@ def low_stock_report(inventory):
     print("\n--- Low Stock Report ---") #prints the low stock items out with id, name and quantity
     for item in low_stock_items:
         print(f"ID: {item['id']}")
-        print(f"Name: {item['Name']}")
-        print(f"Quantity: {item['Quantity']}")
+        print(f"Name: {item['name']}")
+        print(f"Quantity: {item['quantity']}")
         print("-" * 20)
            
 def save_exit(inventory):
@@ -137,6 +137,7 @@ def display_menu():
 
 def main():
     inventory = load_inventory("inventory.json")
+    display_menu()
     while True:
         user_choice = input("Choose an option: ")
         if user_choice == "1":
@@ -152,7 +153,7 @@ def main():
             search_item(inventory)
             break
         elif user_choice == "5":
-            
+            low_stock_report(inventory)
             break
         elif user_choice == "6":
             save_exit(inventory)
