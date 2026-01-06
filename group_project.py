@@ -118,9 +118,9 @@ def low_stock_report(inventory):
            
 def save_exit(inventory):
     try:
-        with open(f{filename}, "w") as file:
-            json.dump(inventory, file, indent=4)
-        print(f"Successfully saved inventory to {filename}") # print confirmation message
+        with open("inventory.json", "w") as f:
+            json.dump(inventory, f, indent=4)
+        print(f"Successfully saved inventory to inventory") # print confirmation message
     except FileNotFoundError:
         print("No save file found. Starting fresh.")
         return [] # Return an empty list
