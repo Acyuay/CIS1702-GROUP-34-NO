@@ -48,49 +48,49 @@ def view_stock(inventory):  #this function of the code allows the user to view t
         print("-" * 20) #prints 20 - out for formatting
 
 def update_item(inventory):
-   item_id = input("enter item id: ")
-   for item in inventory:                 #L39-43 finding item nanme by its id and details
-       if item["id"] == item_id:
+    item_id = input("enter item id: ")
+    for item in inventory:
+        if str(item["id"]) == str(item_id):
             print("\nitem found: ")
             print(f"item name: {item['name']}")
             print(f"item price: {item['price']}")
             print(f"item quantity: {item['quantity']}")
-            choice = input("do you want to update this item? (y/n): ")  #comfirms item to update
-            if choice.lower() != 'y':
-                print("returing to menu")               #goes back to menu
-                return
-            if choice.lower()== 'y':                   # right it contiunes the update
-                choice = input("what would you like to upadate? (name/price/quantity):")
-                if choice.lower() == 'name':
-                    new_name = input(print(f"enter new name:"))
-                    item['name'] = new_name  
-            elif choice.lower() == 'price':
-                try:
-                    new_price = float(input(print(f"Enter new price: ")))   # converts str -> decimal
-                    item['price']= new_price
-                except ValueError:
-                    print(f"invalid input please try again")
-                    return
-            elif choice.lower() == 'quantity':
-                try:
-                    new_quantity = int(input(print(f"enter new quantity: ")))  # int converts string to number
-                    item['quantity'] = new_quantity
-                except ValueError:
-                    print(f"invalid input please try again")
-                    return
+    choice = input("do you want to update this item? (y/n): ")  #comfirms item to update
+    if choice.lower() != 'y':
+        print("returing to menu")               #goes back to menu
+        return
+    elif choice.lower()== 'y':                   # right it contiunes the update
+        choice = input("what would you like to upadate? (name/price/quantity):")
+        if choice.lower() == 'name':
+            new_name = input(print(f"enter new name:"))
+            item['name'] = new_name  
+    elif choice.lower() == 'price':
+        try:
+            new_price = float(input(print(f"Enter new price: ")))   # converts str -> decimal
+            item['price']= new_price
+        except ValueError:
+            print(f"invalid input please try again")
+            return
+    elif choice.lower() == 'quantity':
+        try:
+            new_quantity = int(input(print(f"enter new quantity: ")))  # int converts string to number
+            item['quantity'] = new_quantity
+        except ValueError:
+            print(f"invalid input please try again")
+            return
 
 def search_item(inventory):
-     item_id = input("enter item id: ")
-     for item in inventory:
-         if item["id"] == item_id:
+    item_id = input("enter item id: ")
+    for item in inventory:
+        if str(item["id"]) == str(item_id):
             print("\nitem found: ")
             print(f"item name: {item['name']}")
-            print(f"item priice: {item['price']}")
-            print(f"item quantity: {item['quamtity']}")
+            print(f"item price: {item['price']}")
+            print(f"item quantity: {item['quantity']}")
             return
-         else:
-           print("item not found")
-           return
+
+    print("Item not found")
+
 
 def low_stock_report(inventory):
     try:
