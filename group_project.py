@@ -59,28 +59,28 @@ def update_item(inventory):
             print("\nItem found:")
             print(f"Item name: {item['name']}")
             print(f"Item price: {item['price']}")
-            print(f"Item quantity: {item['quantity']}")
+            print(f"Item quantity: {item['quantity']}")                #edited function similar to search function  
 
             confirm = input("do you want to update this item? (y/n): ")
             if confirm.lower() != 'y':
                 print("returning to menu")
                 return
 
-            choice = input("what would you like to update? (name/price/quantity): ").lower()
+            choice = input("what would you like to update? (name/price/quantity): ").lower()  #allows user to pick option
 
             if choice == 'name':
                 item['name'] = input("enter new name: ")
 
             elif choice == 'price':
                 try:
-                    item['price'] = float(input("enter new price: "))
+                    item['price'] = float(input("enter new price: "))  # converts str - decimal 
                 except ValueError:
                     print("invalid price")
                     return
 
             elif choice == 'quantity':
                 try:
-                    item['quantity'] = int(input("enter new quantity: "))
+                    item['quantity'] = int(input("enter new quantity: "))     # converts str - whole number
                 except ValueError:
                     print("invalid quantity")
                     return
@@ -91,7 +91,7 @@ def update_item(inventory):
     print("Item not found")
 
 def search_item(inventory):
-    item_id = input("enter item id: ")
+    item_id = input("enter item id: ")     
     for item in inventory:
         if str(item["id"]) == str(item_id):
             print("\nitem found: ")
