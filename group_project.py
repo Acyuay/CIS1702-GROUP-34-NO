@@ -41,15 +41,15 @@ def add_item(inventory):
 
 def view_stock(inventory):  #this function of the code allows the user to view the stock in the inventory
     if not inventory:                   
-        print("The inventory is empty.")    #L40 is if the item is not found in the inventory, then a message will display to the user showing that the inventory is empty
+        print("The inventory is empty.")    #L44 is if the item is not found in the inventory, then a message will display to the user showing that the inventory is empty
         return
-    print("\nCurrent Stock:")   #L42 shows the quantity of the stock in the inventory 
+    print("\nCurrent Stock:")   #L46 shows the quantity of the stock in the inventory 
     for item in inventory:              
-        print(f"ID: {item['id']}")  #L44 prints the items id for the user 
-        print(f"Name: {item['name']}")  #L45 prints the item's name 
-        print(f"Price: £{item['price']}")  #L46 prints the price of the item 
-        print(f"Quantity: {item['quantity']}") #L47 will print the quantity of the items 
-        print("-" * 20) #prints 20 - out for formatting
+        print(f"ID: {item['id']}")  #L48 prints the items id for the user 
+        print(f"Name: {item['name']}")  #L49 prints the item's name 
+        print(f"Price: £{item['price']}")  #L50 prints the price of the item 
+        print(f"Quantity: {item['quantity']}") #L51 will print the quantity of the items 
+        print("-" * 20) #prints 20 - out for formatting so it looks neater 
 
 def update_item(inventory):
     item_id = input("enter item id: ")
@@ -125,7 +125,7 @@ def low_stock_report(inventory):
         print(f"ID: {item['id']}")
         print(f"Name: {item['name']}")
         print(f"Quantity: {item['quantity']}")
-        print("-" * 20) #prints 20 - out for formatting
+        print("-" * 20) #prints 20 - out for formatting to look neater 
 
 
 def save_exit(inventory):
