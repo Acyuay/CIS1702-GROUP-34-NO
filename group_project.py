@@ -85,31 +85,28 @@ def search_item(item, inventory):
 
 def low_stock_report(inventory):
     try:
-        threshold = int(input("Enter low stock threshold: "))
+        threshold = int(input("Enter low stock threshold: ")) #allows user to enter custom stock threshold
     except ValueError:
         print("Invalid number entered.")
         return
 
-    low_stock_items = []
+    low_stock_items = [] #creates an empty list to append the low stock items to
 
-    for item in inventory:
+    for item in inventory: #loop iterates to find all the items below the threshold quantity
         if item["Quantity"] <= threshold:
             low_stock_items.append(item)
 
-    if not low_stock_items:
+    if not low_stock_items: 
         print("No items are low in stock.")
         return
 
-    print("\n--- Low Stock Report ---") #new line for readablility
+    print("\n--- Low Stock Report ---") #prints the low stock items out with id, name and quantity
     for item in low_stock_items:
         print(f"ID: {item['id']}")
         print(f"Name: {item['Name']}")
         print(f"Quantity: {item['Quantity']}")
         print("-" * 20)
-    
-
-
-         
+           
 def save_exit(inventory):
     try:
         with open(f{filename}, "w") as file:
