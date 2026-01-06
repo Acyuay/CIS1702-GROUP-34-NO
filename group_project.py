@@ -1,5 +1,4 @@
 import json
-
 """
 This is our inventory system that is capable of adding items, viewing the stock
 updating the stock, searching the stock, generating low stock reports and saving the data to a json file
@@ -23,9 +22,9 @@ def add_item(inventory):
         if item["id"] == product_id:
             print("Error: An item with this ID already exists.")
             return
-    if item["name"].lower() == product_name.lower():
-        print("Error: An item with this name already exists.")
-        return
+        if item["name"].lower() == product_name.lower():
+            print("Error: An item with this name already exists.")
+            return
     try:
         product_price = float(input("Please enter the product's price: £")) #float is telling python input as a number with decimals
         product_quantity = int(input("Please enter the products quantity:"))
@@ -104,7 +103,6 @@ def search_item(inventory):
 
     print("Item not found")
 
-
 def low_stock_report(inventory):
     try:
         threshold = int(input("Enter low stock threshold: ")) #allows user to enter custom stock threshold
@@ -129,7 +127,6 @@ def low_stock_report(inventory):
         print(f"Quantity: {item['quantity']}")
         print("-" * 20) #prints 20 - out for formatting to look neater 
 
-
 def save_exit(inventory):
     try:
         with open("inventory.json", "w") as f:
@@ -147,7 +144,6 @@ def display_menu():
     print("4. Search")
     print("5. Low stock report")
     print("6. Save and exit")
-
 
 def main():
     inventory = load_inventory("inventory.json")
