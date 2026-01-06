@@ -131,22 +131,22 @@ def main():
     while True:
         user_choice = input("Choose an option: ")
         if user_choice == "1":
-            add_item()
+            add_item(inventory)
             break
         elif user_choice == "2":
-            view_stock()
+            view_stock(inventory)
             break
         elif user_choice == "3":
-            update_item()
+            update_item(inventory)
             break
         elif user_choice == "4":
-            search_item()
+            search_item(inventory)
             break
         elif user_choice == "5":
             
             break
         elif user_choice == "6":
-            save_exit()
+            save_exit(inventory)
             break
         else:
             print("Invalid input please try again")
