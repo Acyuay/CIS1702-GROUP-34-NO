@@ -29,9 +29,9 @@ def add_item(inventory):
 
     inventory.append({
         "id": product_id,
-        "Name": product_name,
-        "Price": product_price,
-        "Quantity": product_quantity
+        "name": product_name,
+        "price": product_price,
+        "quantity": product_quantity
     })
     print("---The item has been added successfully---")
 
@@ -53,14 +53,14 @@ def update_item(item, inventory):
        if item["id"] == item_id:
             print("\nitem found: ")
             print(f"item name: {item['name']}")
-            print(f"item priice: {item['price']}")
+            print(f"item price: {item['price']}")
             print(f"item quantity: {item['quantity']}")
             choice = input("do you want to update this item? (y/n): ")  #comfirms item to update
             if choice.lower() != 'y':
                 print("returing to menu")               #goes back to menu
                 return
             if choice.lower()== 'y':                   # right it contiunes the update
-                choice = input("whaat would you like to upadate? (name/price/quantity):")
+                choice = input("what would you like to upadate? (name/price/quantity):")
                 if choice.lower() == 'name':
                     new_name = input(print(f"enter new name:"))
                     item['name'] = new_name  
@@ -161,3 +161,4 @@ def main():
             print("Invalid input please try again")
         return
 
+main()
